@@ -1,0 +1,29 @@
+.chat-window.panel.panel-default
+	.panel-heading
+		span.dropdown
+			button.btn-small.btn-warning.dropdown-toggle(type="button", data-toggle="dropdown") {{ctrl.room}} 
+				span.caret
+			ul.dropdown-menu
+				li.cursor-pointer.text-center(ng-repeat="room in ctrl.rooms", ng-click="ctrl.joinRoom(room)") {{room}}
+				li.text-center
+					form(role="form", ng-submit="ctrl.joinRoom(ctrl.newRoomName)")
+						.form-group
+							input.text-center(type="text", value="Enter room name", ng-model="ctrl.newRoomName" ng-click="ctrl.newRoomName=''",
+								ng-model-options="{updateOn: 'blur'}", ng-focus="ctrl.newRoomNameFocused=true",
+								ng-class="ctrl.newRoomNameFocused ? 'text-primary' : 'text-muted'")
+		button.btn-small.btn-danger.pull-right(ng-click="ctrl.close()")
+			span.glyphicon.glyphicon-remove
+	.panel-body.padding-bottom-25px(schroll-bottom="ctrl.messages")
+		table
+			tr(ng-repeat="msgObj in ctrl.messages")
+				td(message="{{msgObj.message}}", user="{{msgObj.user}}", type="{{msgObj.type}}", chat-event)
+	.panel-footer
+		form(role="form", ng-submit="ctrl.sendMessage()")
+			span.form-group
+				label(for="message") 
+					span.small.text-muted Message: 
+				.input-group
+					input.form-control(type="text",ng-model="ctrl.message",spellcheck="true",required)
+					span.input-group-btn
+						button.btn.btn-default(type="submit") Send
+					

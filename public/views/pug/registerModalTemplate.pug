@@ -1,0 +1,20 @@
+.modal-header
+	button.close(type="button", ng-click="RMCtrl.cancel()")
+		span.glyphicon.glyphicon-remove
+	h4.modal-title Register
+
+.modal-body
+	form(name="registerForm", ng-submit="RMCtrl.submit(username,password,repeatPassword)")
+		.form-group
+			label(for="username") username:
+			input.form-control(type="text", ng-model="username", required)
+		.form-group
+			label(for="password") password:
+			input.form-control(type="password", ng-model="password", required)
+		.form-group
+			label(for="repeatPassword") repeat password:
+			input.form-control(type="password", ng-model="repeatPassword", ng-model-options="{updateOn: 'blur'}", ng-change="RMCtrl.passwordMismatch = password !== repeatPassword;", required)
+		button Submit
+	span.label.label-warning(ng-show="RMCtrl.error") {{RMCtrl.error}}
+
+.modal-footer

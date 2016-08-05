@@ -1,0 +1,23 @@
+
+<div class="modal-header">
+  <button class="close" type="button" ng-click="RMCtrl.cancel()"><span class="glyphicon glyphicon-remove"></span></button>
+  <h4 class="modal-title">Register</h4>
+</div>
+<div class="modal-body">
+  <form name="registerForm" ng-submit="RMCtrl.submit(username,password,repeatPassword)">
+    <div class="form-group">
+      <label for="username">username:</label>
+      <input class="form-control" type="text" ng-model="username" required="required"/>
+    </div>
+    <div class="form-group">
+      <label for="password">password:</label>
+      <input class="form-control" type="password" ng-model="password" required="required"/>
+    </div>
+    <div class="form-group">
+      <label for="repeatPassword">repeat password:</label>
+      <input class="form-control" type="password" ng-model="repeatPassword" ng-model-options="{updateOn: 'blur'}" ng-change="RMCtrl.passwordMismatch = password !== repeatPassword;" required="required"/>
+    </div>
+    <button>Submit</button>
+  </form><span class="label label-warning" ng-show="RMCtrl.error">{{RMCtrl.error}}</span>
+</div>
+<div class="modal-footer"></div>

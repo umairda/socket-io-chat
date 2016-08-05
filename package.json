@@ -1,0 +1,57 @@
+{
+  "name": "socket-io-chat",
+  "version": "1.0.0",
+  "description": "a chat app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "stop": "pkill --signal SIGINT socketIoChat",
+    "test": "test/karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/umairda/chat-app.git"
+  },
+  "keywords": [
+    "chat",
+    "app",
+    "socket.io",
+    "angular",
+    "express",
+    "nodejs",
+    "mongodb",
+    "mean"
+  ],
+  "author": "Umair Ansari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/umairda/chat-app/issues"
+  },
+  "homepage": "https://github.com/umairda/chat-app#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "logger": "0.0.1",
+    "mongoose": "^4.5.5",
+    "morgan": "^1.7.0",
+    "pug": "^2.0.0-beta4",
+    "socket.io": "^1.4.8"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-pug": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-sass": "^1.2.0",
+    "jasmine-core": "^2.4.1",
+    "jasmine-jquery": "^2.1.1",
+    "jshint": "^2.9.2",
+    "karma": "^1.1.1",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-ng-html2js-preprocessor": "^1.0.0",
+    "ng-html2js": "^2.0.0",
+    "node-sass": "^3.8.0"
+  }
+}

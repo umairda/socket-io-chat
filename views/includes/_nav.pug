@@ -1,0 +1,21 @@
+nav.navbar.navbar-default.clear-top(ng-controller="NavController as navCtrl")
+	.container-fluid
+		.navbar-header
+			a.navbar-brand(href='/') 
+				//span.glyphicon.glyphicon-asterisk
+				| Socket IO Chat Application
+				//span.glyphicon.glyphicon-asterisk
+		ul.nav.navbar-nav
+			li.dropdown
+				a.dropdown-toggle(data-toggle="dropdown")
+					span.glyphicon.glyphicon-user
+					span.caret
+				ul.dropdown-menu.ui-view
+			li
+				a(ng-bind="navCtrl.loginStatus")
+			li
+				a
+					my-message-display
+		ul.nav.navbar-nav.navbar-right
+			li
+				a(href="http://github.com/umairda/socket-io-chat") Source

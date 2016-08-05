@@ -1,0 +1,17 @@
+.modal-header
+	button.close(type="button", ng-click="LMCtrl.cancel()")
+		span.glyphicon.glyphicon-remove
+	h4.modal-title Login
+
+.modal-body
+	form(name="loginForm", ng-submit="LMCtrl.submit(username,password)")
+		.form-group
+			label(for="username") username:
+			input.form-control(type="text", ng-model="username", required)
+		.form-group
+			label(for="password") password:
+			input.form-control(type="password", ng-model="password", required)
+		button Submit
+	span.label.label-warning(ng-show="LMCtrl.error") {{LMCtrl.error}}
+
+.modal-footer

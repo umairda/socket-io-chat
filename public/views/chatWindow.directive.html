@@ -1,0 +1,32 @@
+
+<div class="chat-window panel panel-default">
+  <div class="panel-heading"><span class="dropdown">
+      <button class="btn-small btn-warning dropdown-toggle" type="button" data-toggle="dropdown">{{ctrl.room}} <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <li class="cursor-pointer text-center" ng-repeat="room in ctrl.rooms" ng-click="ctrl.joinRoom(room)">{{room}}</li>
+        <li class="text-center">
+          <form role="form" ng-submit="ctrl.joinRoom(ctrl.newRoomName)">
+            <div class="form-group">
+              <input class="text-center" type="text" value="Enter room name" ng-model="ctrl.newRoomName" ng-click="ctrl.newRoomName=''" ng-model-options="{updateOn: 'blur'}" ng-focus="ctrl.newRoomNameFocused=true" ng-class="ctrl.newRoomNameFocused ? 'text-primary' : 'text-muted'"/>
+            </div>
+          </form>
+        </li>
+      </ul></span>
+    <button class="btn-small btn-danger pull-right" ng-click="ctrl.close()"><span class="glyphicon glyphicon-remove"></span></button>
+  </div>
+  <div class="panel-body padding-bottom-25px" schroll-bottom="ctrl.messages">
+    <table>
+      <tr ng-repeat="msgObj in ctrl.messages">
+        <td message="{{msgObj.message}}" user="{{msgObj.user}}" type="{{msgObj.type}}" chat-event="chat-event"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="panel-footer">
+    <form role="form" ng-submit="ctrl.sendMessage()"><span class="form-group">
+        <label for="message"> <span class="small text-muted">Message: </span></label>
+        <div class="input-group">
+          <input class="form-control" type="text" ng-model="ctrl.message" spellcheck="true" required="required"/><span class="input-group-btn">
+            <button class="btn btn-default" type="submit">Send</button></span>
+        </div></span></form>
+  </div>
+</div>
